@@ -7,6 +7,8 @@ const intern = require('./lib/intern');
 
 const buildTeam = require('./assets/buildTeam');
 
+const team = [];
+
 function addManager() {
     console.log('Create your Dev Team!');
     inquirer
@@ -58,4 +60,31 @@ function addIntern() {
             }
         ])};
 
+function addEngineer() {
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                name: 'engineer',
+                message: 'Add an Engineer to your team!'
+            },
+            {
+                type: 'number',
+                name: 'engineerID',
+                message: 'Enter the Engineer ID',
+            },
+            {
+                type: 'input',
+                name: 'engineerEmail',
+                message: 'Enter the email for this Engineer',
+            },
+            {
+                type: 'input',
+                name: 'engineerGH',
+                message: 'Enter the GitHub username for this Engineer'
+            }
+        ])};
+
+        
+        
         
