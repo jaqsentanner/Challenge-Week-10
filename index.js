@@ -33,7 +33,10 @@ function addManager() {
                 name: 'officeNumber',
                 message: 'Enter Manager Office Telephone'
             }
-        ])};
+        ])
+        
+        .prompt(addIntern());
+    };
 
 function addIntern() {
     inquirer
@@ -86,5 +89,5 @@ function addEngineer() {
         ])};
 
         
-        
+     addManager();   
         
