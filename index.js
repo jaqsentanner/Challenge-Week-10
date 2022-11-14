@@ -58,7 +58,9 @@ function createTeam() {
                         addIntern();
                         break;
                     case 'Build Team':
-                        makeTeam.buildTeam(team);
+                        const Build = makeTeam.buildTeam(team);
+                        fs.writeFile('testTeam.html', Build, (err) => 
+                        err ? console.log(err) : console.log('HTML Built'));
                 }
             })
     }
