@@ -3,9 +3,9 @@ const fs = require('fs');
 
 const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
-const intern = require('./lib/intern');
+const Intern = require('./lib/intern');
 
-const buildTeam = require('./assets/buildTeam');
+const makeTeam = require('./assets/buildTeam');
 const { ADDRGETNETWORKPARAMS } = require('dns');
 
 const team = [];
@@ -58,7 +58,7 @@ function createTeam() {
                         addIntern();
                         break;
                     case 'Build Team':
-                        buildTeam();
+                        makeTeam.buildTeam(team);
                 }
             })
     }
@@ -86,10 +86,10 @@ function addIntern() {
                 name: 'school',
                 message: 'Where did this Intern attend school?'
             }
-        ]) .then (response => {
-            const int = new intern(response.intern, response.internID, response.internEmail, response.school);
+        ]) .then (response2 => {
+            const int = new Intern(response2.intern, response2.internID, response2.internEmail, response2.school);
             team.push(int);
-            console.log(team);
+            createTeam();
         })
     };
 
@@ -116,8 +116,8 @@ function addEngineer() {
                 name: 'engineerGH',
                 message: 'Enter the GitHub username for this Engineer'
             }
-        ]) .then (response => {
-            const dev = new Engineer(response.engineer, response.engineerID, response.engineerEmail, response.engineerGH);
+        ]) .then (response1 => {
+            const dev = new Engineer(response1.engineer, response1.engineerID, response1.engineerEmail, response1.engineerGH);
             team.push(dev);
             createTeam();
     })};
