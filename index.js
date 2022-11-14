@@ -1,11 +1,12 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-const manager = require('./lib/manager');
-const engineer = require('./lib/engineer');
+const Manager = require('./lib/manager');
+const Engineer = require('./lib/engineer');
 const intern = require('./lib/intern');
 
 const buildTeam = require('./assets/buildTeam');
+const { ADDRGETNETWORKPARAMS } = require('dns');
 
 const team = [];
 
@@ -33,10 +34,34 @@ function addManager() {
                 name: 'officeNumber',
                 message: 'Enter Manager Office Telephone'
             }
-        ])
-        
-        .prompt(addIntern());
+        ]) .then(response => {
+            const person = new Manager(response.manager1, response.managerID, response.managerEmail, response.officeNumber);
+            team.push(person);
+            createTeam();
+        })
+
     };
+
+function createTeam() {
+        inquirer
+            .prompt([{
+                type: 'list',
+                name: 'memberRole',
+                message: 'Add another Team Member!',
+                choices: ['Engineer', 'Intern', 'Build Team']
+            }]) .then (chosen => {
+                switch (chosen.memberRole) {
+                    case 'Engineer': 
+                        addEngineer();
+                        break;
+                    case 'Intern':
+                        addIntern();
+                        break;
+                    case 'Build Team':
+                        buildTeam();
+                }
+            })
+    }
 
 function addIntern() {
     inquirer
@@ -61,7 +86,12 @@ function addIntern() {
                 name: 'school',
                 message: 'Where did this Intern attend school?'
             }
-        ])};
+        ]) .then (response => {
+            const int = new intern(response.intern, response.internID, response.internEmail, response.school);
+            team.push(int);
+            console.log(team);
+        })
+    };
 
 function addEngineer() {
     inquirer
@@ -86,8 +116,13 @@ function addEngineer() {
                 name: 'engineerGH',
                 message: 'Enter the GitHub username for this Engineer'
             }
-        ])};
+        ]) .then (response => {
+            const dev = new Engineer(response.engineer, response.engineerID, response.engineerEmail, response.engineerGH);
+            team.push(dev);
+            createTeam();
+    })};
 
         
      addManager();   
+     
         
