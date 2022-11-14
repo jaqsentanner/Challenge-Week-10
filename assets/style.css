@@ -1,0 +1,9 @@
+.testFlex {
+    display:flex;
+    justify-content: center;
+}
+
+.card {
+    margin: 5px;
+    padding: 2px;
+}
