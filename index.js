@@ -17,7 +17,7 @@ function addManager() {
             {
                 type:'input',
                 name: 'manager1',
-                message: 'Enter the Team Manager Name',
+                message: "Enter the Team Manager's Name",
             },
             {
                 type: 'number',

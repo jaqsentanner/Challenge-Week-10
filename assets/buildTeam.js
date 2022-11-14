@@ -24,7 +24,7 @@ class makeTeam {
             <h5 class="card-title">${Manager.manager1}</h5>
             <h6 class="card-subtitle mb-2 text-muted">Employee ID: ${Manager.managerID}</h6>
             <p class="card-text">${Manager.manager1} is a talented Lead Dev!</p>
-            <a href="#" class="card-link">Contact: ${Manager.managerEmail}</a>
+            <a href="mailto:${Manager.managerEmail}" class="card-link">Contact: ${Manager.managerEmail}</a>
             <a href="#" class="card-link">Call: ${Manager.officeNumber}</a>
             </div>
         </div>
@@ -33,8 +33,8 @@ class makeTeam {
             <h5 class="card-title">${Engineer.engineer}</h5>
             <h6 class="card-subtitle mb-2 text-muted">Employee ID: ${Engineer.engineerID}</h6>
             <p class="card-text">The Engineer role is key to the success of the team. Engineer's handle both front-end and back-end development.</p>
-            <a href="#" class="card-link">Contact: ${Engineer.engineerEmail}</a>
-            <a href="#" class="card-link">Check Out My Work on GitHub!</a>
+            <a href="mailto:${Engineer.engineerEmail}" class="card-link">Contact: ${Engineer.engineerEmail}</a>
+            <a href="https://github.com/${Engineer.engineerGH}" class="card-link">Check Out My Work on GitHub!</a>
             </div>
         </div>
         <div class="card" style="width: 18rem;">
@@ -42,8 +42,8 @@ class makeTeam {
             <h5 class="card-title">${Intern.intern}</h5>
             <h6 class="card-subtitle mb-2 text-muted">Employee ID: ${Intern.internID}</h6>
             <p class="card-text">Established Fact: The world's best interns graduate from the U of Minnesota's Coding Bootcamp and are taught by Nate Perfetti!</p>
-            <a href="#" class="card-link">Contact: ${Intern.internEmail}</a>
-            <a href="#" >alma mater ${Intern.school}</a>
+            <a href="mailto:${Intern.internEmail}" class="card-link">Contact: ${Intern.internEmail}</a>
+            <a class="#" class="white"><br>alma mater ${Intern.school}</a>
             </div>
         </div>
     </section>
