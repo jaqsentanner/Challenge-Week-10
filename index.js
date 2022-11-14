@@ -59,7 +59,7 @@ function createTeam() {
                         break;
                     case 'Build Team':
                         const Build = makeTeam.buildTeam(team);
-                        fs.writeFile('testTeam.html', Build, (err) => 
+                        fs.writeFile('./assets/testTeam.html', Build, (err) => 
                         err ? console.log(err) : console.log('HTML Built'));
                 }
             })
